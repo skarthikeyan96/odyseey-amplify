@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+      className={`flex min-h-screen flex-col items-center  pt-10 ${inter.className}`}
     >
         {
         posts.map((post: any, postIdx: number) => {
