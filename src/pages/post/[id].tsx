@@ -1,12 +1,27 @@
 import { getPost, listPosts } from "@/graphql/queries"
-import { API } from "aws-amplify"
+import { API, Storage } from "aws-amplify"
 import { GetStaticPaths, GetStaticProps } from "next"
+import React, { useState } from "react"
 
 const Post = ({post}: any) => {
+console.log(post)
+
+const [coverImage, setCoverImage] = useState("")
+
+
+React.useEffect(() => {
+    const getCoverImage = async () =>{ 
+        const image = await Storage.get(post.coverImage)
+        setCoverImage(image)
+    }
+    getCoverImage()
+},[])
+
 
     return (
         <> 
            <h1>  {post.name} </h1>
+           <img src={coverImage}/>
         </>
     )
 }

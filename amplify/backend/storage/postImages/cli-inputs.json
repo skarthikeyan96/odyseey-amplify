@@ -1,0 +1,16 @@
+{
+  "resourceName": "postImages",
+  "policyUUID": "9b496e9f",
+  "bucketName": "socialmediaamplify75eb457c32ae4670bb6a83b79b50f",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

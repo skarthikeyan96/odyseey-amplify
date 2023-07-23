@@ -54,6 +54,8 @@ const MyPost = () => {
               <Link href={`post/${post.id}`}> {post.name} </Link>
               <br/>
               <button onClick={() => deleteMediaPost(post.id)}> Delete Post </button>
+              <Link href={`post/edit/${post.id}`}> Edit post</Link>
+
               </li>
           )
         })

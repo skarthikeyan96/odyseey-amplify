@@ -17,6 +17,9 @@
       },
       "auth": {
         "socialmediaamplifybbdddd5d": {}
+      },
+      "storage": {
+        "postImages": {}
       }
     }
   }
