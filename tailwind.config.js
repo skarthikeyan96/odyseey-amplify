@@ -15,6 +15,8 @@ module.exports = {
     },
   },
   plugins: [
-    require('preline/plugin', '@tailwindcss/typography','@tailwindcss/forms'),
+    require('preline/plugin'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
   ],
 }

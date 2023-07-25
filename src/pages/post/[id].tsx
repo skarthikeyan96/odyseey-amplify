@@ -2,6 +2,7 @@ import { getPost, listPosts } from "@/graphql/queries"
 import { API, Storage } from "aws-amplify"
 import { GetStaticPaths, GetStaticProps } from "next"
 import React, { useState } from "react"
+import ReactMarkdown from "react-markdown"
 
 const Post = ({post}: any) => {
 console.log(post)
@@ -10,6 +11,7 @@ const [coverImage, setCoverImage] = useState("")
 
 
 React.useEffect(() => {
+    if(!post.coverImage) return;
     const getCoverImage = async () =>{ 
         const image = await Storage.get(post.coverImage)
         setCoverImage(image)
@@ -21,7 +23,13 @@ React.useEffect(() => {
     return (
         <> 
            <h1>  {post.name} </h1>
-           <img src={coverImage}/>
+           {coverImage && <img src={coverImage}/>}
+           <div className="w-1/2 prose border p-4 overflow-scroll">
+            <ReactMarkdown
+              children={post.content}
+              //   remarkPlugins={[remarkGfm]}
+            />
+          </div>
         </>
     )
 }
