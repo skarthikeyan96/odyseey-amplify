@@ -18,7 +18,6 @@ type Post
     @index(name: "postsByUsername", queryField: "postsByUsername")
   coverImage: String
   comments: [Comment] @hasMany(indexName: "byPost", fields: ["id"]) #check out: https://docs.amplify.aws/cli/graphql/data-modeling/#has-many-relationship
-  likes: 
 }
 
 
