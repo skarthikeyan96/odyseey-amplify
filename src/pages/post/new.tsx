@@ -165,6 +165,7 @@ const NewPost = () => {
           </div>
           <div className="w-1/2 prose border p-4 overflow-scroll">
             <ReactMarkdown
+              // eslint-disable-next-line react/no-children-prop
               children={markdownContent}
               //   remarkPlugins={[remarkGfm]}
             />

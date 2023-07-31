@@ -1,4 +1,5 @@
 import { getPost, listPosts } from "@/graphql/queries"
+import { Authenticator } from "@aws-amplify/ui-react"
 import { API, Storage } from "aws-amplify"
 import { GetStaticPaths, GetStaticProps } from "next"
 import React, { useState } from "react"
@@ -7,7 +8,6 @@ import ReactMarkdown from "react-markdown"
 
 
 const Post = ({ post }: any) => {
-  console.log(post)
 
   const [coverImage, setCoverImage] = useState("")
 
@@ -22,11 +22,13 @@ const Post = ({ post }: any) => {
     getCoverImage()
   }, [])
 
+  if(!post) return;
 
   return (
 
     <>
-      <div className="max-w-3xl px-4 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-8 mx-auto">
+    <Authenticator>
+    <div className="max-w-3xl px-4 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-2xl">
           <div className="flex justify-between items-center mb-6">
             <div className="flex w-full sm:items-center gap-x-5 sm:gap-x-3">
@@ -117,6 +119,8 @@ const Post = ({ post }: any) => {
           </div>
         </div>
       </div>
+    </Authenticator>
+    
 
 
     </>

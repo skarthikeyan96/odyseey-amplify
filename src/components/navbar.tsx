@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const [signedUser, setSignedUser] = useState(false);
 
-  console.log(signedUser)
 
   useEffect(() => {
     AuthListener()
