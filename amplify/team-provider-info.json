@@ -9,17 +9,26 @@
       "UnauthRoleName": "amplify-socialmediaamplify-dev-140518-unauthRole",
       "StackName": "amplify-socialmediaamplify-dev-140518",
       "StackId": "arn:aws:cloudformation:us-east-1:395832403886:stack/amplify-socialmediaamplify-dev-140518/88821b30-27a1-11ee-9d2b-127b359c4601",
-      "AmplifyAppId": "d369lw20lvaxqm"
+      "AmplifyAppId": "d369lw20lvaxqm",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-socialmediaamplify-dev-140518-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "api": {
         "socialmediaamplify": {}
       },
       "auth": {
-        "socialmediaamplifybbdddd5d": {}
+        "socialmediaamplifybbdddd5d": {},
+        "userPoolGroups": {}
       },
       "storage": {
         "postImages": {}
+      },
+      "function": {
+        "socialmediaamplifybbdddd5dPostConfirmation": {
+          "deploymentBucketName": "amplify-socialmediaamplify-dev-140518-deployment",
+          "s3Key": "amplify-builds/socialmediaamplifybbdddd5dPostConfirmation-536d46634e594a784170-build.zip",
+          "usertable": "User-4xdmjtmrezawjixcr2flnkgi2m-dev"
+        }
       }
     }
   }

@@ -2,25 +2,23 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreatePostInput = {
+export type CreateFollowerInput = {
   id?: string | null,
-  name: string,
-  content: string,
-  username?: string | null,
-  coverImage?: string | null,
+  userID: string,
+  followerID: string,
+  userFollowersId?: string | null,
 };
 
-export type ModelPostConditionInput = {
-  name?: ModelStringInput | null,
-  content?: ModelStringInput | null,
-  username?: ModelStringInput | null,
-  coverImage?: ModelStringInput | null,
-  and?: Array< ModelPostConditionInput | null > | null,
-  or?: Array< ModelPostConditionInput | null > | null,
-  not?: ModelPostConditionInput | null,
+export type ModelFollowerConditionInput = {
+  userID?: ModelIDInput | null,
+  followerID?: ModelIDInput | null,
+  and?: Array< ModelFollowerConditionInput | null > | null,
+  or?: Array< ModelFollowerConditionInput | null > | null,
+  not?: ModelFollowerConditionInput | null,
+  userFollowersId?: ModelIDInput | null,
 };
 
-export type ModelStringInput = {
+export type ModelIDInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -58,6 +56,124 @@ export type ModelSizeInput = {
   ge?: number | null,
   gt?: number | null,
   between?: Array< number | null > | null,
+};
+
+export type Follower = {
+  __typename: "Follower",
+  id: string,
+  userID: string,
+  followerID: string,
+  user?: User | null,
+  follower?: User | null,
+  createdAt: string,
+  updatedAt: string,
+  userFollowersId?: string | null,
+};
+
+export type User = {
+  __typename: "User",
+  id: string,
+  name?: string | null,
+  followers?: ModelFollowerConnection | null,
+  following?: ModelFollowingConnection | null,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type ModelFollowerConnection = {
+  __typename: "ModelFollowerConnection",
+  items:  Array<Follower | null >,
+  nextToken?: string | null,
+};
+
+export type ModelFollowingConnection = {
+  __typename: "ModelFollowingConnection",
+  items:  Array<Following | null >,
+  nextToken?: string | null,
+};
+
+export type Following = {
+  __typename: "Following",
+  id: string,
+  userID: string,
+  followerID: string,
+  user?: User | null,
+  follower?: User | null,
+  createdAt: string,
+  updatedAt: string,
+  userFollowingId?: string | null,
+};
+
+export type UpdateFollowerInput = {
+  id: string,
+  userID?: string | null,
+  followerID?: string | null,
+  userFollowersId?: string | null,
+};
+
+export type DeleteFollowerInput = {
+  id: string,
+};
+
+export type CreateFollowingInput = {
+  id?: string | null,
+  userID: string,
+  followerID: string,
+  userFollowingId?: string | null,
+};
+
+export type ModelFollowingConditionInput = {
+  userID?: ModelIDInput | null,
+  followerID?: ModelIDInput | null,
+  and?: Array< ModelFollowingConditionInput | null > | null,
+  or?: Array< ModelFollowingConditionInput | null > | null,
+  not?: ModelFollowingConditionInput | null,
+  userFollowingId?: ModelIDInput | null,
+};
+
+export type UpdateFollowingInput = {
+  id: string,
+  userID?: string | null,
+  followerID?: string | null,
+  userFollowingId?: string | null,
+};
+
+export type DeleteFollowingInput = {
+  id: string,
+};
+
+export type CreatePostInput = {
+  id?: string | null,
+  name: string,
+  content: string,
+  username?: string | null,
+  coverImage?: string | null,
+};
+
+export type ModelPostConditionInput = {
+  name?: ModelStringInput | null,
+  content?: ModelStringInput | null,
+  username?: ModelStringInput | null,
+  coverImage?: ModelStringInput | null,
+  and?: Array< ModelPostConditionInput | null > | null,
+  or?: Array< ModelPostConditionInput | null > | null,
+  not?: ModelPostConditionInput | null,
+};
+
+export type ModelStringInput = {
+  ne?: string | null,
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  contains?: string | null,
+  notContains?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+  size?: ModelSizeInput | null,
 };
 
 export type Post = {
@@ -115,22 +231,6 @@ export type ModelCommentConditionInput = {
   not?: ModelCommentConditionInput | null,
 };
 
-export type ModelIDInput = {
-  ne?: string | null,
-  eq?: string | null,
-  le?: string | null,
-  lt?: string | null,
-  ge?: string | null,
-  gt?: string | null,
-  contains?: string | null,
-  notContains?: string | null,
-  between?: Array< string | null > | null,
-  beginsWith?: string | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
-  size?: ModelSizeInput | null,
-};
-
 export type UpdateCommentInput = {
   id: string,
   message?: string | null,
@@ -139,6 +239,47 @@ export type UpdateCommentInput = {
 
 export type DeleteCommentInput = {
   id: string,
+};
+
+export type CreateUserInput = {
+  id?: string | null,
+  name?: string | null,
+};
+
+export type ModelUserConditionInput = {
+  name?: ModelStringInput | null,
+  and?: Array< ModelUserConditionInput | null > | null,
+  or?: Array< ModelUserConditionInput | null > | null,
+  not?: ModelUserConditionInput | null,
+};
+
+export type UpdateUserInput = {
+  id: string,
+  name?: string | null,
+};
+
+export type DeleteUserInput = {
+  id: string,
+};
+
+export type ModelFollowerFilterInput = {
+  id?: ModelIDInput | null,
+  userID?: ModelIDInput | null,
+  followerID?: ModelIDInput | null,
+  and?: Array< ModelFollowerFilterInput | null > | null,
+  or?: Array< ModelFollowerFilterInput | null > | null,
+  not?: ModelFollowerFilterInput | null,
+  userFollowersId?: ModelIDInput | null,
+};
+
+export type ModelFollowingFilterInput = {
+  id?: ModelIDInput | null,
+  userID?: ModelIDInput | null,
+  followerID?: ModelIDInput | null,
+  and?: Array< ModelFollowingFilterInput | null > | null,
+  or?: Array< ModelFollowingFilterInput | null > | null,
+  not?: ModelFollowingFilterInput | null,
+  userFollowingId?: ModelIDInput | null,
 };
 
 export type ModelPostFilterInput = {
@@ -173,13 +314,26 @@ export type ModelCommentFilterInput = {
   not?: ModelCommentFilterInput | null,
 };
 
-export type ModelSubscriptionPostFilterInput = {
+export type ModelUserFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  and?: Array< ModelUserFilterInput | null > | null,
+  or?: Array< ModelUserFilterInput | null > | null,
+  not?: ModelUserFilterInput | null,
+};
+
+export type ModelUserConnection = {
+  __typename: "ModelUserConnection",
+  items:  Array<User | null >,
+  nextToken?: string | null,
+};
+
+export type ModelSubscriptionFollowerFilterInput = {
   id?: ModelSubscriptionIDInput | null,
-  name?: ModelSubscriptionStringInput | null,
-  content?: ModelSubscriptionStringInput | null,
-  coverImage?: ModelSubscriptionStringInput | null,
-  and?: Array< ModelSubscriptionPostFilterInput | null > | null,
-  or?: Array< ModelSubscriptionPostFilterInput | null > | null,
+  userID?: ModelSubscriptionIDInput | null,
+  followerID?: ModelSubscriptionIDInput | null,
+  and?: Array< ModelSubscriptionFollowerFilterInput | null > | null,
+  or?: Array< ModelSubscriptionFollowerFilterInput | null > | null,
 };
 
 export type ModelSubscriptionIDInput = {
@@ -195,6 +349,23 @@ export type ModelSubscriptionIDInput = {
   beginsWith?: string | null,
   in?: Array< string | null > | null,
   notIn?: Array< string | null > | null,
+};
+
+export type ModelSubscriptionFollowingFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  userID?: ModelSubscriptionIDInput | null,
+  followerID?: ModelSubscriptionIDInput | null,
+  and?: Array< ModelSubscriptionFollowingFilterInput | null > | null,
+  or?: Array< ModelSubscriptionFollowingFilterInput | null > | null,
+};
+
+export type ModelSubscriptionPostFilterInput = {
+  id?: ModelSubscriptionIDInput | null,
+  name?: ModelSubscriptionStringInput | null,
+  content?: ModelSubscriptionStringInput | null,
+  coverImage?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionPostFilterInput | null > | null,
+  or?: Array< ModelSubscriptionPostFilterInput | null > | null,
 };
 
 export type ModelSubscriptionStringInput = {
@@ -218,6 +389,294 @@ export type ModelSubscriptionCommentFilterInput = {
   postID?: ModelSubscriptionIDInput | null,
   and?: Array< ModelSubscriptionCommentFilterInput | null > | null,
   or?: Array< ModelSubscriptionCommentFilterInput | null > | null,
+};
+
+export type ModelSubscriptionUserFilterInput = {
+  name?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionUserFilterInput | null > | null,
+  or?: Array< ModelSubscriptionUserFilterInput | null > | null,
+};
+
+export type CreateFollowerMutationVariables = {
+  input: CreateFollowerInput,
+  condition?: ModelFollowerConditionInput | null,
+};
+
+export type CreateFollowerMutation = {
+  createFollower?:  {
+    __typename: "Follower",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowersId?: string | null,
+  } | null,
+};
+
+export type UpdateFollowerMutationVariables = {
+  input: UpdateFollowerInput,
+  condition?: ModelFollowerConditionInput | null,
+};
+
+export type UpdateFollowerMutation = {
+  updateFollower?:  {
+    __typename: "Follower",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowersId?: string | null,
+  } | null,
+};
+
+export type DeleteFollowerMutationVariables = {
+  input: DeleteFollowerInput,
+  condition?: ModelFollowerConditionInput | null,
+};
+
+export type DeleteFollowerMutation = {
+  deleteFollower?:  {
+    __typename: "Follower",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowersId?: string | null,
+  } | null,
+};
+
+export type CreateFollowingMutationVariables = {
+  input: CreateFollowingInput,
+  condition?: ModelFollowingConditionInput | null,
+};
+
+export type CreateFollowingMutation = {
+  createFollowing?:  {
+    __typename: "Following",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowingId?: string | null,
+  } | null,
+};
+
+export type UpdateFollowingMutationVariables = {
+  input: UpdateFollowingInput,
+  condition?: ModelFollowingConditionInput | null,
+};
+
+export type UpdateFollowingMutation = {
+  updateFollowing?:  {
+    __typename: "Following",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowingId?: string | null,
+  } | null,
+};
+
+export type DeleteFollowingMutationVariables = {
+  input: DeleteFollowingInput,
+  condition?: ModelFollowingConditionInput | null,
+};
+
+export type DeleteFollowingMutation = {
+  deleteFollowing?:  {
+    __typename: "Following",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowingId?: string | null,
+  } | null,
 };
 
 export type CreatePostMutationVariables = {
@@ -406,6 +865,293 @@ export type DeleteCommentMutation = {
   } | null,
 };
 
+export type CreateUserMutationVariables = {
+  input: CreateUserInput,
+  condition?: ModelUserConditionInput | null,
+};
+
+export type CreateUserMutation = {
+  createUser?:  {
+    __typename: "User",
+    id: string,
+    name?: string | null,
+    followers?:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowersId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    following?:  {
+      __typename: "ModelFollowingConnection",
+      items:  Array< {
+        __typename: "Following",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowingId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdateUserMutationVariables = {
+  input: UpdateUserInput,
+  condition?: ModelUserConditionInput | null,
+};
+
+export type UpdateUserMutation = {
+  updateUser?:  {
+    __typename: "User",
+    id: string,
+    name?: string | null,
+    followers?:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowersId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    following?:  {
+      __typename: "ModelFollowingConnection",
+      items:  Array< {
+        __typename: "Following",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowingId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeleteUserMutationVariables = {
+  input: DeleteUserInput,
+  condition?: ModelUserConditionInput | null,
+};
+
+export type DeleteUserMutation = {
+  deleteUser?:  {
+    __typename: "User",
+    id: string,
+    name?: string | null,
+    followers?:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowersId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    following?:  {
+      __typename: "ModelFollowingConnection",
+      items:  Array< {
+        __typename: "Following",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowingId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type GetFollowerQueryVariables = {
+  id: string,
+};
+
+export type GetFollowerQuery = {
+  getFollower?:  {
+    __typename: "Follower",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowersId?: string | null,
+  } | null,
+};
+
+export type ListFollowersQueryVariables = {
+  filter?: ModelFollowerFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListFollowersQuery = {
+  listFollowers?:  {
+    __typename: "ModelFollowerConnection",
+    items:  Array< {
+      __typename: "Follower",
+      id: string,
+      userID: string,
+      followerID: string,
+      user?:  {
+        __typename: "User",
+        id: string,
+        name?: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      follower?:  {
+        __typename: "User",
+        id: string,
+        name?: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      userFollowersId?: string | null,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type GetFollowingQueryVariables = {
+  id: string,
+};
+
+export type GetFollowingQuery = {
+  getFollowing?:  {
+    __typename: "Following",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowingId?: string | null,
+  } | null,
+};
+
+export type ListFollowingsQueryVariables = {
+  filter?: ModelFollowingFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListFollowingsQuery = {
+  listFollowings?:  {
+    __typename: "ModelFollowingConnection",
+    items:  Array< {
+      __typename: "Following",
+      id: string,
+      userID: string,
+      followerID: string,
+      user?:  {
+        __typename: "User",
+        id: string,
+        name?: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      follower?:  {
+        __typename: "User",
+        id: string,
+        name?: string | null,
+        createdAt: string,
+        updatedAt: string,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      userFollowingId?: string | null,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
 export type GetPostQueryVariables = {
   id: string,
 };
@@ -585,6 +1331,350 @@ export type CommentsByPostIDQuery = {
       createdBy?: string | null,
     } | null >,
     nextToken?: string | null,
+  } | null,
+};
+
+export type GetUserQueryVariables = {
+  id: string,
+};
+
+export type GetUserQuery = {
+  getUser?:  {
+    __typename: "User",
+    id: string,
+    name?: string | null,
+    followers?:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowersId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    following?:  {
+      __typename: "ModelFollowingConnection",
+      items:  Array< {
+        __typename: "Following",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowingId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListUsersQueryVariables = {
+  filter?: ModelUserFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListUsersQuery = {
+  listUsers?:  {
+    __typename: "ModelUserConnection",
+    items:  Array< {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type OnCreateFollowerSubscriptionVariables = {
+  filter?: ModelSubscriptionFollowerFilterInput | null,
+};
+
+export type OnCreateFollowerSubscription = {
+  onCreateFollower?:  {
+    __typename: "Follower",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowersId?: string | null,
+  } | null,
+};
+
+export type OnUpdateFollowerSubscriptionVariables = {
+  filter?: ModelSubscriptionFollowerFilterInput | null,
+};
+
+export type OnUpdateFollowerSubscription = {
+  onUpdateFollower?:  {
+    __typename: "Follower",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowersId?: string | null,
+  } | null,
+};
+
+export type OnDeleteFollowerSubscriptionVariables = {
+  filter?: ModelSubscriptionFollowerFilterInput | null,
+};
+
+export type OnDeleteFollowerSubscription = {
+  onDeleteFollower?:  {
+    __typename: "Follower",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowersId?: string | null,
+  } | null,
+};
+
+export type OnCreateFollowingSubscriptionVariables = {
+  filter?: ModelSubscriptionFollowingFilterInput | null,
+};
+
+export type OnCreateFollowingSubscription = {
+  onCreateFollowing?:  {
+    __typename: "Following",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowingId?: string | null,
+  } | null,
+};
+
+export type OnUpdateFollowingSubscriptionVariables = {
+  filter?: ModelSubscriptionFollowingFilterInput | null,
+};
+
+export type OnUpdateFollowingSubscription = {
+  onUpdateFollowing?:  {
+    __typename: "Following",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowingId?: string | null,
+  } | null,
+};
+
+export type OnDeleteFollowingSubscriptionVariables = {
+  filter?: ModelSubscriptionFollowingFilterInput | null,
+};
+
+export type OnDeleteFollowingSubscription = {
+  onDeleteFollowing?:  {
+    __typename: "Following",
+    id: string,
+    userID: string,
+    followerID: string,
+    user?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    follower?:  {
+      __typename: "User",
+      id: string,
+      name?: string | null,
+      followers?:  {
+        __typename: "ModelFollowerConnection",
+        nextToken?: string | null,
+      } | null,
+      following?:  {
+        __typename: "ModelFollowingConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    userFollowingId?: string | null,
   } | null,
 };
 
@@ -771,5 +1861,128 @@ export type OnDeleteCommentSubscription = {
     createdAt: string,
     updatedAt: string,
     createdBy?: string | null,
+  } | null,
+};
+
+export type OnCreateUserSubscriptionVariables = {
+  filter?: ModelSubscriptionUserFilterInput | null,
+  id?: string | null,
+};
+
+export type OnCreateUserSubscription = {
+  onCreateUser?:  {
+    __typename: "User",
+    id: string,
+    name?: string | null,
+    followers?:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowersId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    following?:  {
+      __typename: "ModelFollowingConnection",
+      items:  Array< {
+        __typename: "Following",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowingId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdateUserSubscriptionVariables = {
+  filter?: ModelSubscriptionUserFilterInput | null,
+  id?: string | null,
+};
+
+export type OnUpdateUserSubscription = {
+  onUpdateUser?:  {
+    __typename: "User",
+    id: string,
+    name?: string | null,
+    followers?:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowersId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    following?:  {
+      __typename: "ModelFollowingConnection",
+      items:  Array< {
+        __typename: "Following",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowingId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeleteUserSubscriptionVariables = {
+  filter?: ModelSubscriptionUserFilterInput | null,
+  id?: string | null,
+};
+
+export type OnDeleteUserSubscription = {
+  onDeleteUser?:  {
+    __typename: "User",
+    id: string,
+    name?: string | null,
+    followers?:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowersId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    following?:  {
+      __typename: "ModelFollowingConnection",
+      items:  Array< {
+        __typename: "Following",
+        id: string,
+        userID: string,
+        followerID: string,
+        createdAt: string,
+        updatedAt: string,
+        userFollowingId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
   } | null,
 };

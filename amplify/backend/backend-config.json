@@ -37,7 +37,17 @@
   "auth": {
     "socialmediaamplifybbdddd5d": {
       "customAuth": false,
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "socialmediaamplifybbdddd5dPostConfirmation",
+          "triggerProvider": "Cognito"
+        }
+      ],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
         "mfaTypes": [
@@ -58,6 +68,55 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    },
+    "userPoolGroups": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "socialmediaamplifybbdddd5d"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito-UserPool-Groups"
+    }
+  },
+  "function": {
+    "socialmediaamplifybbdddd5dPostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_socialmediaamplifybbdddd5dPostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "socialmediaamplifybbdddd5dPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_socialmediaamplifybbdddd5dPostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "socialmediaamplifybbdddd5dPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_socialmediaamplifybbdddd5dPostConfirmation_usertable": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "socialmediaamplifybbdddd5dPostConfirmation"
+        }
+      ]
     }
   },
   "storage": {
