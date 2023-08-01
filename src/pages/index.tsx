@@ -9,7 +9,7 @@ import Navbar from '@/components/navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Dashboard() {
   const [posts, setPosts] = useState<any>([])
   const [loading, setLoading] = useState(false)
 

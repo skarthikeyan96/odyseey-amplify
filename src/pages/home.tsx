@@ -32,7 +32,7 @@ export default function Home() {
                       <div>
                         <Link
                           className="btn text-white bg-gray-900 hover:bg-gray-800 w-full sm:w-auto sm:ml-4 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"
-                          href="/profle"
+                          href="/profile"
                         >
                           Get Started
                         </Link>

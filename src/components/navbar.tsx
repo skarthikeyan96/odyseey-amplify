@@ -1,9 +1,12 @@
 import { Auth, Hub } from 'aws-amplify'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 const Navbar = () => {
   const [signedUser, setSignedUser] = useState(false)
+
+  const router = useRouter()
 
   useEffect(() => {
     AuthListener()
@@ -13,6 +16,7 @@ const Navbar = () => {
     Hub.listen('auth', (data) => {
       switch (data.payload.event) {
         case 'SignIn':
+          router.push('/')
           return setSignedUser(true)
         case 'SignOut':
           return setSignedUser(false)
@@ -39,23 +43,46 @@ const Navbar = () => {
         </Link>
 
         <nav className="ml-auto flex flex-wrap items-center justify-center text-base space-x-4">
-          <Link className="font-medium " href="/" aria-current="page">
-            Home
-          </Link>
+          {signedUser ? (
+            <>
+              <Link className="font-medium " href="/" aria-current="page">
+                Home
+              </Link>
 
-          <Link className="font-medium " href="/post/new" aria-current="page">
-            New Journal
-          </Link>
+              <Link
+                className="font-medium "
+                href="/my-post"
+                aria-current="page"
+              >
+                My Journal
+              </Link>
 
-          {signedUser && (
-            <Link className="font-medium " href="/my-post" aria-current="page">
-              My Journal
-            </Link>
+              <Link
+                className="font-medium "
+                href="/post/new"
+                aria-current="page"
+              >
+                New Journal
+              </Link>
+              <Link
+                className="font-medium "
+                href="/profile"
+                aria-current="page"
+              >
+                Profile
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                className="font-medium "
+                href="/profile"
+                aria-current="page"
+              >
+                Sign in
+              </Link>
+            </>
           )}
-
-          <Link className="font-medium " href="/profile" aria-current="page">
-            Profile
-          </Link>
         </nav>
       </div>
     </header>
