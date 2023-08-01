@@ -13,7 +13,6 @@ const MyPost = () => {
     const [posts, setPosts] = useState([])
     const fetchPost = async () => {
         const response = await Auth.currentAuthenticatedUser()
-        console.log("username", response)
         const username = `${response.attributes.sub}::${response.username}`
        const post:any =  await API.graphql({ 
             query: postsByUsername,

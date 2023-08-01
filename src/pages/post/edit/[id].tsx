@@ -1,6 +1,5 @@
 import { updatePost } from "@/graphql/mutations";
 import { getPost } from "@/graphql/queries";
-import { Authenticator } from "@aws-amplify/ui-react";
 import { API, Storage } from "aws-amplify";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef } from "react";
@@ -24,12 +23,12 @@ const EditPost = () => {
 
   const id = router.query.id;
 
- // eslint-disable-next-line react-hooks/rules-of-hooks
- const [title, setTitle] = React.useState("");
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [title, setTitle] = React.useState("");
 
- // eslint-disable-next-line react-hooks/rules-of-hooks
- const [markdownContent, setMarkdownContent] = React.useState("");
- 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [markdownContent, setMarkdownContent] = React.useState("");
+
   const [coverImage, setCoverImage] = React.useState<any>(null)
   const [localImage, setLocalImage] = React.useState(null);
 
@@ -44,7 +43,6 @@ const EditPost = () => {
         query: getPost,
         variables: { id }
       })
-      console.log(postData)
       setTitle(postData.data.getPost.name)
       setMarkdownContent(postData.data.getPost.content)
       if (postData.data.getPost.coverImage) {
@@ -69,31 +67,26 @@ const EditPost = () => {
 
 
   const handleUpdatePost = async () => {
-    if(!title || !markdownContent) return;
+    if (!title || !markdownContent) return;
 
-    // const postUpdated: any = {
-    //   id,
-    //   content,
-    //   name
-    // }
+    let coverImageToBeUpdated = ""
 
-
-    // if (coverImage && localImage) {
-    //   const fileName = `${coverImage.name}_${uuid()}`;
-    //   postUpdated.coverImage = fileName;
-    //   await Storage.put(fileName, coverImage);
-    // }
+    if (coverImage && localImage) {
+      coverImageToBeUpdated = `${coverImage.name}_${uuid()}`;
+      await Storage.put(coverImageToBeUpdated, coverImage);
+    }
 
 
     await API.graphql({
       query: updatePost,
       variables: {
-                input: {
-                    id,
-                    name: title,
-                    content: markdownContent
-                }
-            },
+        input: {
+          id,
+          name: title,
+          content: markdownContent,
+          coverImage: coverImageToBeUpdated
+        }
+      },
       authMode: "AMAZON_COGNITO_USER_POOLS"
     })
     router.push(`/my-post`)
@@ -107,7 +100,6 @@ const EditPost = () => {
   if (!title || !markdownContent) return null
   const handleImageChange = (e: any) => {
     const fileUploaded = e.target.files[0];
-    console.log(fileUploaded)
 
     if (!fileUploaded) return;
     setCoverImage(fileUploaded);
@@ -123,7 +115,6 @@ const EditPost = () => {
   const handleAttachImage = async (e: any) => {
 
     const fileUploaded = e.target.files[0];
-    // console.log(fileUploaded)
 
     if (!fileUploaded) return;
 
@@ -136,16 +127,16 @@ const EditPost = () => {
     });
 
     const image = await Storage.get(res.key)
-    console.log(image)
     setMarkdownContent(`${markdownContent} \n ![post-image](${image})`)
 
   }
 
- const handleEditorChange = (value: any) => setMarkdownContent(value);
+  const handleEditorChange = (value: any) => setMarkdownContent(value);
 
-  if(loading) return (<p> Loading... </p>)
+  if (loading) return (<p> Loading... </p>)
+
+
   return (
-    <Authenticator>
       <div className="container mx-auto p-4">
         <div className="mt-4">
           <label htmlFor="input-label" className="block text-sm font-medium mb-2 dark:text-black text-black">Title</label>
@@ -153,11 +144,11 @@ const EditPost = () => {
 
         </div>
 
-        {/* {
-            image && 
-            <img src={URL.createObjectURL(image)}/>
+        {
+          coverImage &&
+          <img src={localImage ? localImage : coverImage} />
         }
-       */}
+
         <div className="flex w-full items-center justify-between pt-5">
           <div className="flex h-10 items-center gap-2 shrink-0">
 
@@ -203,16 +194,30 @@ const EditPost = () => {
             <ReactMarkdown
               // eslint-disable-next-line react/no-children-prop
               children={markdownContent}
-            //   remarkPlugins={[remarkGfm]}
             />
           </div>
         </div>
 
 
+        <label className="block">
+          <span className="sr-only">Choose cover image</span>
+          <input type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            id="contained-button-file"
+            className="block w-full text-sm text-gray-500
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-md file:border-0
+      file:text-sm file:font-semibold
+      file:bg-blue-500 file:text-white
+      hover:file:bg-blue-600
+    "/>
+        </label>
+
+
 
         <button onClick={handleUpdatePost} className="mt-4 w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-800 text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 transition-all text-sm dark:focus:ring-gray-900 dark:focus:ring-offset-gray-800"> Create Post </button>
       </div>
-    </Authenticator>
   )
 }
 

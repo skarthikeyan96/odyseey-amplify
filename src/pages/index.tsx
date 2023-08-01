@@ -26,7 +26,6 @@ export default function Home() {
     setPosts(postData.data.listPosts.items)
   }
 
-  console.log(posts)
 
   const renderPost = () => {
     if (posts.length === 0) return (

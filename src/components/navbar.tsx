@@ -35,7 +35,7 @@ const Navbar = () => {
       <div className="container mx-auto flex h-28 min-h-0   flex-row flex-wrap items-center px-5">
         <Link href="/" passHref className="title-font mb-0 flex items-center font-medium text-gray-900">
           <span className="font text-xl tracking-wide text-black ">
-            Odesey
+          Odyssey
           </span>
         </Link>
 

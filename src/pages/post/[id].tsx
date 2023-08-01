@@ -1,10 +1,8 @@
 import { getPost, listPosts } from "@/graphql/queries"
-import { Authenticator } from "@aws-amplify/ui-react"
 import { API, Storage } from "aws-amplify"
 import { GetStaticPaths, GetStaticProps } from "next"
 import React, { useState } from "react"
 import ReactMarkdown from "react-markdown"
-
 
 
 const Post = ({ post }: any) => {
@@ -27,14 +25,11 @@ const Post = ({ post }: any) => {
   return (
 
     <>
-    <Authenticator>
     <div className="max-w-3xl px-4 pt-6 lg:pt-10 pb-12 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-2xl">
           <div className="flex justify-between items-center mb-6">
             <div className="flex w-full sm:items-center gap-x-5 sm:gap-x-3">
-              {/* <div className="flex-shrink-0">
-                <img className="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1669837401587-f9a4cfe3126e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80" alt="Image Description" />
-              </div> */}
+             
 
               <div className="grow">
                 <div className="grid sm:flex sm:justify-between sm:items-center gap-2">
@@ -108,18 +103,20 @@ const Post = ({ post }: any) => {
 
 
           <div className="space-y-5 md:space-y-8">
+          <h2 className="text-2xl font-bold md:text-3xl ">{post.name}</h2>
+          <div className="flex-shrink-0">
+                {coverImage && <img className="w-full object-cover rounded-xl" src={coverImage} alt="Image Description"/>}
+              </div>
             <div className="space-y-3 prose">
               <ReactMarkdown
                 // eslint-disable-next-line react/no-children-prop
                 children={post.content}
-              //   remarkPlugins={[remarkGfm]}
               />
             </div>
 
           </div>
         </div>
       </div>
-    </Authenticator>
     
 
 
