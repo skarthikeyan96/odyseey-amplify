@@ -23,7 +23,7 @@ const Profile = () => {
         router.push('/')
         break
       case 'signUp':
-        console.log('user signed up')
+        router.push('/')
         break
       case 'signOut':
         console.log('user signed out')
