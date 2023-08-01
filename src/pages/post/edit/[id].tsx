@@ -160,7 +160,12 @@ const EditPost = () => {
             </button>
           </div>
         </div>
-
+        <label
+          htmlFor="input-label"
+          className="block text-sm font-medium mb-2 dark:text-black text-black"
+        >
+          Journal content
+        </label>
         <div className="h-[calc(100vh_-_15rem)] flex">
           <div className="flex flex-1 min-h-0 grow">
             <Editor
@@ -170,7 +175,6 @@ const EditPost = () => {
               value={markdownContent}
               onChange={handleEditorChange}
               options={{
-                lineNumbers: 'off',
                 minimap: {
                   enabled: false,
                 },
@@ -186,6 +190,10 @@ const EditPost = () => {
         </div>
 
         <label className="block">
+        <span className="block text-sm font-medium mb-2 dark:text-black text-black">
+            {' '}
+            Choose cover image{' '}
+          </span>
           <span className="sr-only">Choose cover image</span>
           <input
             type="file"

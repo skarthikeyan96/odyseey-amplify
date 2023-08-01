@@ -41,25 +41,9 @@ const Post = ({ post }: any) => {
                         >
                           <div className="p-4 sm:p-5">
                             <div className="mb-2 flex w-full sm:items-center gap-x-5 sm:gap-x-3">
-                              <div className="flex-shrink-0">
-                                <img
-                                  className="h-8 w-8 rounded-full"
-                                  src="https://images.unsplash.com/photo-1669837401587-f9a4cfe3126e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                                  alt="Image Description"
-                                />
-                              </div>
-
-                              <div className="grow">
-                                <p className="text-lg font-semibold text-gray-200">
-                                  Leyla Ludic
-                                </p>
-                              </div>
+ 
                             </div>
-                            <p className="text-sm text-gray-400">
-                              Leyla is a Customer Success Specialist at Preline
-                              and spends her time speaking to in-house
-                              recruiters all over the world.
-                            </p>
+
                           </div>
 
                           <div className="flex justify-between items-center px-4 py-3 sm:px-5">
