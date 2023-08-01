@@ -47,7 +47,7 @@ export const createFollower = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const updateFollower = /* GraphQL */ `
   mutation UpdateFollower(
     $input: UpdateFollowerInput!
@@ -93,7 +93,7 @@ export const updateFollower = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const deleteFollower = /* GraphQL */ `
   mutation DeleteFollower(
     $input: DeleteFollowerInput!
@@ -139,7 +139,7 @@ export const deleteFollower = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const createFollowing = /* GraphQL */ `
   mutation CreateFollowing(
     $input: CreateFollowingInput!
@@ -185,7 +185,7 @@ export const createFollowing = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const updateFollowing = /* GraphQL */ `
   mutation UpdateFollowing(
     $input: UpdateFollowingInput!
@@ -231,7 +231,7 @@ export const updateFollowing = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const deleteFollowing = /* GraphQL */ `
   mutation DeleteFollowing(
     $input: DeleteFollowingInput!
@@ -277,7 +277,7 @@ export const deleteFollowing = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const createPost = /* GraphQL */ `
   mutation CreatePost(
     $input: CreatePostInput!
@@ -307,7 +307,7 @@ export const createPost = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const updatePost = /* GraphQL */ `
   mutation UpdatePost(
     $input: UpdatePostInput!
@@ -337,7 +337,7 @@ export const updatePost = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const deletePost = /* GraphQL */ `
   mutation DeletePost(
     $input: DeletePostInput!
@@ -367,7 +367,7 @@ export const deletePost = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const createComment = /* GraphQL */ `
   mutation CreateComment(
     $input: CreateCommentInput!
@@ -397,7 +397,7 @@ export const createComment = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const updateComment = /* GraphQL */ `
   mutation UpdateComment(
     $input: UpdateCommentInput!
@@ -427,7 +427,7 @@ export const updateComment = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const deleteComment = /* GraphQL */ `
   mutation DeleteComment(
     $input: DeleteCommentInput!
@@ -457,7 +457,7 @@ export const deleteComment = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const createUser = /* GraphQL */ `
   mutation CreateUser(
     $input: CreateUserInput!
@@ -497,7 +497,7 @@ export const createUser = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const updateUser = /* GraphQL */ `
   mutation UpdateUser(
     $input: UpdateUserInput!
@@ -537,7 +537,7 @@ export const updateUser = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const deleteUser = /* GraphQL */ `
   mutation DeleteUser(
     $input: DeleteUserInput!
@@ -577,4 +577,4 @@ export const deleteUser = /* GraphQL */ `
       __typename
     }
   }
-`;
+`

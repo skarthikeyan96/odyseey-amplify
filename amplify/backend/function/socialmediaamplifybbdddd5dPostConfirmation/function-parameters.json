@@ -1,8 +1,6 @@
 {
   "trigger": true,
-  "modules": [
-    "custom"
-  ],
+  "modules": ["custom"],
   "parentResource": "socialmediaamplifybbdddd5d",
   "functionName": "socialmediaamplifybbdddd5dPostConfirmation",
   "resourceName": "socialmediaamplifybbdddd5dPostConfirmation",

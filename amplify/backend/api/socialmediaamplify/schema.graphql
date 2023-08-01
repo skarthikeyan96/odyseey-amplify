@@ -20,7 +20,6 @@ type Post
   comments: [Comment] @hasMany(indexName: "byPost", fields: ["id"]) #check out: https://docs.amplify.aws/cli/graphql/data-modeling/#has-many-relationship
 }
 
-
 type Comment
   @model
   @auth(
@@ -43,7 +42,9 @@ type Comment
 #   following: [Following] @hasMany
 # }
 
-type User @model @auth(rules: [{allow: owner}, {allow: public, operations: [read]}]){
+type User
+  @model
+  @auth(rules: [{ allow: owner }, { allow: public, operations: [read] }]) {
   id: ID!
   name: String
   email: String

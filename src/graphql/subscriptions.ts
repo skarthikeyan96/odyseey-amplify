@@ -44,7 +44,7 @@ export const onCreateFollower = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onUpdateFollower = /* GraphQL */ `
   subscription OnUpdateFollower($filter: ModelSubscriptionFollowerFilterInput) {
     onUpdateFollower(filter: $filter) {
@@ -87,7 +87,7 @@ export const onUpdateFollower = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onDeleteFollower = /* GraphQL */ `
   subscription OnDeleteFollower($filter: ModelSubscriptionFollowerFilterInput) {
     onDeleteFollower(filter: $filter) {
@@ -130,7 +130,7 @@ export const onDeleteFollower = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onCreateFollowing = /* GraphQL */ `
   subscription OnCreateFollowing(
     $filter: ModelSubscriptionFollowingFilterInput
@@ -175,7 +175,7 @@ export const onCreateFollowing = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onUpdateFollowing = /* GraphQL */ `
   subscription OnUpdateFollowing(
     $filter: ModelSubscriptionFollowingFilterInput
@@ -220,7 +220,7 @@ export const onUpdateFollowing = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onDeleteFollowing = /* GraphQL */ `
   subscription OnDeleteFollowing(
     $filter: ModelSubscriptionFollowingFilterInput
@@ -265,7 +265,7 @@ export const onDeleteFollowing = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onCreatePost = /* GraphQL */ `
   subscription OnCreatePost(
     $filter: ModelSubscriptionPostFilterInput
@@ -295,7 +295,7 @@ export const onCreatePost = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onUpdatePost = /* GraphQL */ `
   subscription OnUpdatePost(
     $filter: ModelSubscriptionPostFilterInput
@@ -325,7 +325,7 @@ export const onUpdatePost = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onDeletePost = /* GraphQL */ `
   subscription OnDeletePost(
     $filter: ModelSubscriptionPostFilterInput
@@ -355,7 +355,7 @@ export const onDeletePost = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onCreateComment = /* GraphQL */ `
   subscription OnCreateComment(
     $filter: ModelSubscriptionCommentFilterInput
@@ -385,7 +385,7 @@ export const onCreateComment = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onUpdateComment = /* GraphQL */ `
   subscription OnUpdateComment(
     $filter: ModelSubscriptionCommentFilterInput
@@ -415,7 +415,7 @@ export const onUpdateComment = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onDeleteComment = /* GraphQL */ `
   subscription OnDeleteComment(
     $filter: ModelSubscriptionCommentFilterInput
@@ -445,7 +445,7 @@ export const onDeleteComment = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser(
     $filter: ModelSubscriptionUserFilterInput
@@ -485,7 +485,7 @@ export const onCreateUser = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onUpdateUser = /* GraphQL */ `
   subscription OnUpdateUser(
     $filter: ModelSubscriptionUserFilterInput
@@ -525,7 +525,7 @@ export const onUpdateUser = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const onDeleteUser = /* GraphQL */ `
   subscription OnDeleteUser(
     $filter: ModelSubscriptionUserFilterInput
@@ -565,4 +565,4 @@ export const onDeleteUser = /* GraphQL */ `
       __typename
     }
   }
-`;
+`

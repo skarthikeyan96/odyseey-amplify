@@ -44,7 +44,7 @@ export const getFollower = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const listFollowers = /* GraphQL */ `
   query ListFollowers(
     $filter: ModelFollowerFilterInput
@@ -79,7 +79,7 @@ export const listFollowers = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const getFollowing = /* GraphQL */ `
   query GetFollowing($id: ID!) {
     getFollowing(id: $id) {
@@ -122,7 +122,7 @@ export const getFollowing = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const listFollowings = /* GraphQL */ `
   query ListFollowings(
     $filter: ModelFollowingFilterInput
@@ -157,7 +157,7 @@ export const listFollowings = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const getPost = /* GraphQL */ `
   query GetPost($id: ID!) {
     getPost(id: $id) {
@@ -184,7 +184,7 @@ export const getPost = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const listPosts = /* GraphQL */ `
   query ListPosts(
     $filter: ModelPostFilterInput
@@ -210,7 +210,7 @@ export const listPosts = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const postsByUsername = /* GraphQL */ `
   query PostsByUsername(
     $username: String!
@@ -244,7 +244,7 @@ export const postsByUsername = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const getComment = /* GraphQL */ `
   query GetComment($id: ID!) {
     getComment(id: $id) {
@@ -271,7 +271,7 @@ export const getComment = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const listComments = /* GraphQL */ `
   query ListComments(
     $filter: ModelCommentFilterInput
@@ -302,7 +302,7 @@ export const listComments = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const commentsByPostID = /* GraphQL */ `
   query CommentsByPostID(
     $postID: ID!
@@ -341,7 +341,7 @@ export const commentsByPostID = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const getUser = /* GraphQL */ `
   query GetUser($id: ID!) {
     getUser(id: $id) {
@@ -378,7 +378,7 @@ export const getUser = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
 export const listUsers = /* GraphQL */ `
   query ListUsers(
     $filter: ModelUserFilterInput
@@ -405,4 +405,4 @@ export const listUsers = /* GraphQL */ `
       __typename
     }
   }
-`;
+`
